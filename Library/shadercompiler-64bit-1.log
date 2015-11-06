@@ -25,3 +25,7 @@ Cmd: compileCompute
   api=15 insize=407 outsize=965 ok=1
 Cmd: compileCompute
   api=9 insize=407 outsize=925 ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=1089 outsize=669 kw= ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=1089 outsize=6 kw= ok=1
