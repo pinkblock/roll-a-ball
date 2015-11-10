@@ -2,7 +2,6 @@
 using System.Collections;
 using UnityEngine.UI;
 
-
 public class player_controler : MonoBehaviour {
 
 	public float speed;
@@ -50,4 +49,5 @@ public class player_controler : MonoBehaviour {
 		}
 
 	}
+	
 }
