@@ -48,16 +48,14 @@ public class player_controler : MonoBehaviour {
 
 		if (count >= 3)
 		{
-			PlaySound(1);
 			winText.text = "You Win!";
-			Time.timeScale = 0f;
 		}
 
 	}
 
 	void PlaySound(int clip)
 	{
-		GetComponent<AudioSource>().clip = audioClip[clip];
-		GetComponent<AudioSource>().Play ();
+		audio.clip = audioClip[clip];
+		audio.Play ();
 	}
 }
