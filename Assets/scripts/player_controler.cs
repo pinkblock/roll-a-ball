@@ -9,6 +9,7 @@ public class player_controler : MonoBehaviour {
 	public Text winText;
 	public GameObject Lid;
 	public GameObject InTheHole;
+	public GameObject IntroLightGreen;
 	public GameObject ExitLightRed;
 	public GameObject ExitLightGreen;
 
@@ -48,12 +49,17 @@ public class player_controler : MonoBehaviour {
 		if (other.gameObject.CompareTag("in_the_hole"))
 		{
 			other.gameObject.SetActive (false);
-			winText.text = "Your not as DUMB as I thought.";
+			winText.text = "You Win!!!";
 			PlaySound(1);
 			Time.timeScale = 0f;
 		}
 
-
+		if (other.gameObject.CompareTag("background"))
+		{
+			winText.text = "You Die!!!";
+			PlaySound(1);
+			Time.timeScale = 0f;
+		}
 	}
 
 	void SetCountText ()
@@ -62,6 +68,7 @@ public class player_controler : MonoBehaviour {
 
 		if (count >= 3)
 		{
+			IntroLightGreen.SetActive (false);
 			Lid.SetActive (false);
 			ExitLightRed.SetActive (false);
 			InTheHole.SetActive (true);
