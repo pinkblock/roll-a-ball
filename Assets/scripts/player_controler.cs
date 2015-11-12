@@ -7,6 +7,10 @@ public class player_controler : MonoBehaviour {
 	public float speed;
 	public Text countText;
 	public Text winText;
+	public GameObject Lid;
+	public GameObject InTheHole;
+	public GameObject ExitLightRed;
+	public GameObject ExitLightGreen;
 
 	public AudioClip[] audioClip;
 
@@ -40,6 +44,16 @@ public class player_controler : MonoBehaviour {
 			SetCountText ();
 			PlaySound(0);
 		}
+
+		if (other.gameObject.CompareTag("in_the_hole"))
+		{
+			other.gameObject.SetActive (false);
+			winText.text = "Your not as DUMB as I thought.";
+			PlaySound(1);
+			Time.timeScale = 0f;
+		}
+
+
 	}
 
 	void SetCountText ()
@@ -48,9 +62,10 @@ public class player_controler : MonoBehaviour {
 
 		if (count >= 3)
 		{
-			PlaySound(1);
-			winText.text = "You Win!";
-			Time.timeScale = 0f;
+			Lid.SetActive (false);
+			ExitLightRed.SetActive (false);
+			InTheHole.SetActive (true);
+			ExitLightGreen.SetActive (true);
 		}
 
 	}
