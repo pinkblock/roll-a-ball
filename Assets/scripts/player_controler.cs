@@ -7,6 +7,7 @@ public class player_controler : MonoBehaviour {
 	public float speed;
 	public Text countText;
 	public Text winText;
+	public Text timeText;
 	public GameObject Lid;
 	public GameObject InTheHole;
 	public GameObject IntroLightGreen;
@@ -18,12 +19,18 @@ public class player_controler : MonoBehaviour {
 	private Rigidbody rb;
 	private int count;
 
+	private float gameStartTime;
+	private float gameTime;
+
 	void Start ()
 	{
 		rb = GetComponent<Rigidbody> ();
 		count = 0;
 		SetCountText ();
 		winText.text = "";
+		gameStartTime = Time.time;
+		gameTime = 0;
+
 	}
 
 	void FixedUpdate ()
@@ -34,6 +41,11 @@ public class player_controler : MonoBehaviour {
 		Vector3 movment = new Vector3 (moveHorizontal, 0.0f, moveVertical);
 
 		rb.AddForce (movment * speed);
+	}
+
+	void Update ()
+	{
+		SetGameTime ();
 	}
 
 	void OnTriggerEnter(Collider other) 
@@ -75,6 +87,12 @@ public class player_controler : MonoBehaviour {
 			ExitLightGreen.SetActive (true);
 		}
 
+	}
+
+	void SetGameTime ()
+	{
+		gameTime = Time.time - gameStartTime;
+		timeText.text = gameTime.ToString ();
 	}
 
 	void PlaySound(int clip)
