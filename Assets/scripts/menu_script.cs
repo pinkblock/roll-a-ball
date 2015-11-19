@@ -2,18 +2,18 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class menu_script : MonoBehaviour {
 
 	public Canvas quiteMenu;
-	public Button startText;
-	public Button exitText;
+	public Button startButton;
+	public Button exitButton;
 
 
 	// Use this for initialization
 	void Start () {
 		quiteMenu = quiteMenu.GetComponent<Canvas> ();
-		startText = startText.GetComponent<Button> ();
-		exitText = exitText.GetComponent<Button> ();
+		startButton = startButton.GetComponent<Button> ();
+		exitButton = exitButton.GetComponent<Button> ();
 
 		quiteMenu.enabled = false;
 
@@ -22,15 +22,15 @@ public class NewBehaviourScript : MonoBehaviour {
 	public void ExitPress()
 	{
 		quiteMenu.enabled = true;
-		startText.enabled = false;
-		exitText.enabled = false;
+		startButton.enabled = false;
+		exitButton.enabled = false;
 	}
 
 	public void noIsPressed()
 	{
 		quiteMenu.enabled = false;
-		startText.enabled = true;
-		exitText.enabled = true;
+		startButton.enabled = true;
+		exitButton.enabled = true;
 	}
 
 	public void StarLevel()
