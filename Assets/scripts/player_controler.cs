@@ -6,6 +6,7 @@ public class player_controler : MonoBehaviour {
 
 	public float speed;
 	public Text countText;
+	public Text curentLevleText;
 	public Text winText;
 	public Text timeText;
 	public GameObject Lid;
@@ -18,6 +19,7 @@ public class player_controler : MonoBehaviour {
 
 	private Rigidbody rb;
 	private int count;
+	private int curentLevle;
 
 	private float gameStartTime;
 	private float gameTime;
@@ -26,6 +28,7 @@ public class player_controler : MonoBehaviour {
 	{
 		rb = GetComponent<Rigidbody> ();
 		count = 0;
+		curentLevle = 1;
 		SetCountText ();
 		winText.text = "";
 		gameStartTime = Time.time;
@@ -61,9 +64,10 @@ public class player_controler : MonoBehaviour {
 		if (other.gameObject.CompareTag("in_the_hole"))
 		{
 			other.gameObject.SetActive (false);
-			winText.text = "You Win!!!";
 			PlaySound(1);
-			Time.timeScale = 0f;
+
+
+			Application.LoadLevel (Application.loadedLevel + 1);
 		}
 
 		if (other.gameObject.CompareTag("background"))
@@ -72,6 +76,11 @@ public class player_controler : MonoBehaviour {
 			PlaySound(1);
 			Time.timeScale = 0f;
 		}
+	}
+
+	void SetCurentLevleText ()
+	{
+		curentLevleText.text = "Levle: " + curentLevle.ToString ();
 	}
 
 	void SetCountText ()

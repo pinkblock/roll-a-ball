@@ -8,7 +8,6 @@ public class menu_script : MonoBehaviour {
 	public Button startButton;
 	public Button exitButton;
 
-
 	// Use this for initialization
 	void Start () {
 		quiteMenu = quiteMenu.GetComponent<Canvas> ();
